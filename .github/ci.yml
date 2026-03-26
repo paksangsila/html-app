@@ -11,12 +11,16 @@ env:
 jobs:
   job-1:
     runs-on: ubuntu-lastest
+    environment: development
+      APP_name: 'GitHub Action Demo'
+      API_KEY: ${{ secrets.API_KEY }}
     steps:
         -run: echo "Hello Github Action1 ${{env.github.actor}}"
         -run: echo "Hello Github Action ${{env.COMPANY_NAME}}"
         -run: echo "Server IP is ${{env.SERVER_IP}}"
         -run: echo "${{APP_name}}"
         -run: echo "${{API_KEY}}"
+        -run : echo " {{ env.SERVER_IP_PRODUCTION }}"
   job-2:
     runs-on: ubuntu-lastest
     steps:
